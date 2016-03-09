@@ -28,7 +28,7 @@ SENTRY_ADMIN_EMAIL = os.environ.get('SENTRY_ADMIN_EMAIL', '')
 
 # Instruct Sentry that this install intends to be run by a single organization
 # and thus various UI optimizations should be enabled.
-SENTRY_SINGLE_ORGANIZATION = True
+SENTRY_SINGLE_ORGANIZATION = Bool(os.environ.get('SENTRY_SINGLE_ORGANIZATION', True))
 
 # Should Sentry allow users to create new accounts?
 SENTRY_FEATURES['auth:register'] = False
@@ -81,7 +81,7 @@ SENTRY_CACHE = 'sentry.cache.redis.RedisCache'
 # on a Python framework called Celery to manage queues.
 
 CELERY_ALWAYS_EAGER = False
-BROKER_URL = os.environ['REDIS_URL'] + '/0'
+BROKER_URL = os.environ['REDIS_URL']
 
 ###############
 # Rate Limits #
