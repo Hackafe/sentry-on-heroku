@@ -267,3 +267,13 @@ BITBUCKET_CONSUMER_SECRET = os.environ.get('BITBUCKET_CONSUMER_SECRET')
 # If this file ever becomes compromised, it's important to regenerate your SECRET_KEY
 # Changing this value will result in all current sessions being invalidated
 SECRET_KEY = os.environ['SECRET_KEY']
+if not SECRET_KEY:
+    raise Exception('Error: SENTRY_SECRET_KEY is undefined, run `generate-secret-key` and set to -e SENTRY_SECRET_KEY')
+
+if len(SECRET_KEY) < 32:
+    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print('!!                CAUTION                    !!')
+    print('!! Your SECRET_KEY is potentially insecure.  !!')
+    print('!! We recommend at least 32 characters long. !!')
+    print('!!  Regenerate with `generate-secret-key`.   !!')
+    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
