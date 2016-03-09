@@ -4,6 +4,7 @@ import os.path
 
 import dj_database_url
 from sentry.conf.server import *
+from sentry.utils.types import Bool
 
 CONF_ROOT = os.path.dirname(__file__)
 
