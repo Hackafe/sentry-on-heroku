@@ -141,7 +141,7 @@ SENTRY_FILESTORE_OPTIONS = {
 SENTRY_URL_PREFIX = os.environ['SENTRY_URL_PREFIX']
 
 SENTRY_WEB_HOST = '0.0.0.0'
-SENTRY_WEB_PORT = int(os.environ['PORT'])
+SENTRY_WEB_PORT = int(os.getenv('PORT', 5000))
 SENTRY_WEB_OPTIONS = {
     'secure_scheme_headers': {'X-FORWARDED-PROTO': 'https'},
     'worker_class': 'gevent',
@@ -165,6 +165,10 @@ elif 'MANDRILL_USERNAME' in os.environ:
     EMAIL_HOST = 'smtp.mandrillapp.com'
     EMAIL_HOST_USER = os.environ['MANDRILL_USERNAME']
     EMAIL_HOST_PASSWORD = os.environ['MANDRILL_APIKEY']
+elif 'GMAIL_USERNAME' in os.environ:
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ['GMAIL_USERNAME']
+    EMAIL_HOST_PASSWORD = os.environ['GMAILL_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
