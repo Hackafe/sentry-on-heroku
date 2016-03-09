@@ -168,7 +168,7 @@ elif 'MANDRILL_USERNAME' in os.environ:
 elif 'GMAIL_USERNAME' in os.environ:
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = os.environ['GMAIL_USERNAME']
-    EMAIL_HOST_PASSWORD = os.environ['GMAILL_PASSWORD']
+    EMAIL_HOST_PASSWORD = os.environ['GMAIL_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
