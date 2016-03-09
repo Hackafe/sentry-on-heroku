@@ -4,7 +4,6 @@ import os.path
 
 import dj_database_url
 from sentry.conf.server import *
-from sentry.utils.types import Bool
 
 CONF_ROOT = os.path.dirname(__file__)
 
@@ -29,7 +28,7 @@ SENTRY_ADMIN_EMAIL = os.environ.get('SENTRY_ADMIN_EMAIL', '')
 
 # Instruct Sentry that this install intends to be run by a single organization
 # and thus various UI optimizations should be enabled.
-SENTRY_SINGLE_ORGANIZATION = Bool(os.environ.get('SENTRY_SINGLE_ORGANIZATION', True))
+SENTRY_SINGLE_ORGANIZATION = True
 
 # Should Sentry allow users to create new accounts?
 SENTRY_FEATURES['auth:register'] = False
